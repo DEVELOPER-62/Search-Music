@@ -1,0 +1,68 @@
+:root{
+  --bg:#0b1220; --bg2:#0d162b; --card:#111a31c9; --accent:#6ee7ff; --accent2:#9b8cff; --text:#e7eefc; --muted:#9bb0d0;
+  --ring: rgba(110,231,255,.5);
+}
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0; font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif;
+  color:var(--text);
+  background: radial-gradient(1000px 600px at 10% -10%, #18233d 0%, transparent 60%),
+              radial-gradient(900px 700px at 120% 10%, #1b2440 0%, transparent 60%),
+              linear-gradient(180deg, var(--bg), var(--bg2));
+}
+header{ padding:32px 18px 12px; position:sticky; top:0; z-index:20;
+  backdrop-filter:saturate(1.2) blur(8px); background:linear-gradient(180deg, rgba(11,18,32,.85), rgba(11,18,32,.35));
+  border-bottom:1px solid rgba(158,173,209,.08);
+}
+.wrap{ max-width:1000px; margin:0 auto }
+.brand{ display:flex; align-items:center; gap:12px }
+.logo{ width:44px; height:44px; display:grid; place-items:center; border-radius:12px; background:
+  conic-gradient(from 210deg, var(--accent) 0 30%, transparent 30% 60%, var(--accent2) 60% 100%),
+  radial-gradient(90px 70px at 40% 40%, #203057 0%, transparent 60%);
+  box-shadow:0 10px 30px rgba(155,140,255,.35), inset 0 0 30px rgba(110,231,255,.2);
+}
+h1{ margin:0; font-size:clamp(22px,3.8vw,36px) }
+.subtitle{ margin:4px 0 0; color:var(--muted); font-size:13px }
+
+.searchbox{ margin:22px 0 8px; display:grid; grid-template-columns: 1fr auto auto; gap:10px }
+.field{
+  display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid rgba(158,173,209,.12);
+  border-radius:18px; padding:12px 14px; transition:.2s ease;
+}
+.field:focus-within{ outline:2px solid var(--ring); border-color:transparent }
+.field input{ flex:1; background:transparent; border:0; outline:none; color:var(--text); font-size:16px }
+button{ cursor:pointer; border:0; color:#0b1220; font-weight:700; letter-spacing:.2px }
+.btn{ padding:12px 16px; border-radius:16px; background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 10px 25px rgba(110,231,255,.25), 0 6px 18px rgba(155,140,255,.18); transition:transform .08s ease }
+.btn:active{ transform:translateY(1px) }
+.btn.secondary{ background:transparent; color:var(--text); border:1px solid rgba(158,173,209,.18) }
+
+.mic-btn{ display:flex; align-items:center; gap:8px; background:transparent; border:1px solid rgba(158,173,209,.18);
+          color:var(--text); padding:12px 14px; border-radius:16px; position:relative; overflow:hidden }
+.mic-dot{ width:8px; height:8px; border-radius:50%; background:#e25555; box-shadow:0 0 0 0 rgba(226,85,85,.6);
+          animation:pulse 1.6s infinite; display:none }
+.mic-btn.recording .mic-dot{ display:inline-block }
+@keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(226,85,85,.7) } 70%{ box-shadow:0 0 0 12px rgba(226,85,85,0) } 100%{ box-shadow:0 0 0 0 rgba(226,85,85,0) } }
+
+.hint{ font-size:12px; color:var(--muted) }
+
+.grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:14px; padding:18px 0 }
+.card{ background:var(--card); border:1px solid rgba(158,173,209,.12); border-radius:18px; overflow:hidden; position:relative }
+.thumb{ width:100%; aspect-ratio:1/1; object-fit:cover; background:#0f1830 }
+.card-body{ padding:12px 12px 14px }
+.track{ font-weight:700; font-size:16px; margin:0 0 4px }
+.artist{ margin:0 0 8px; color:var(--muted); font-size:13px }
+.actions{ display:flex; gap:8px; flex-wrap:wrap }
+.a{ text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:9px 11px; border-radius:12px; font-weight:700; font-size:13px; border:1px solid rgba(158,173,209,.18); color:var(--text) }
+.a.primary{ background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#0b1220; border:0 }
+
+.toast{ position:fixed; right:16px; bottom:16px; background:#111a31; color:var(--text); border:1px solid rgba(158,173,209,.18);
+        padding:12px 14px; border-radius:12px; box-shadow: 0 12px 30px rgba(0,0,0,.35); opacity:0; transform:translateY(8px); pointer-events:none; transition:.2s }
+.toast.show{ opacity:1; transform:none }
+
+footer{ text-align:center; color:var(--muted); font-size:12px; padding:26px 12px 40px }
+.kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background:#0f1a34; padding:2px 6px; border-radius:6px; border:1px solid rgba(158,173,209,.2) }
+
+.badge{ font-size:12px; padding:4px 8px; border:1px solid rgba(158,173,209,.25); border-radius:999px; color:var(--muted) }
+.conf{ font-weight:700 }
